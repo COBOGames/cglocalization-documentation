@@ -1,0 +1,36 @@
+/* 
+    Created on : 22-feb-2020, 22:08:05
+    Author     : COBO
+*/
+@media only screen and (max-width: 600px)
+{
+    /* show the button*/
+    .menu-button-wrapper{
+        display: block;        
+    }
+
+    /* hide the sidebar */
+    .sidebar-wrapper{
+        left: var(--sidebar-hided-pos-left);
+    }
+
+    /* move the content to the left */
+    .content{
+        margin-left: 0px;
+    }
+
+    /* hide the navbar link names */
+    .navbar-link-name{
+        display: none;
+    }
+
+    /* remove border*/
+    .navbar-link-icon{
+        margin-right: 0px;
+    }
+    
+    .navbar-title
+    {
+        display: none;
+    }
+}

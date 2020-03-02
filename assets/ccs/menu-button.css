@@ -1,0 +1,29 @@
+.menu-button-wrapper
+{
+    display: none;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3
+{
+    width: 30px;
+    height: 4px;
+    margin-bottom: 6px;
+    background-color: #f2f2f2;
+    transition: 0.4s;
+    border-radius: 3px;
+}
+
+.morph-to-x .bar1
+{
+    -webkit-transform: rotate(45deg) translate(8px, 6px);
+    transform: rotate(45deg) translate(8px, 6px);
+}
+
+.morph-to-x .bar2 {opacity: 0;}
+
+.morph-to-x .bar3 
+{
+    -webkit-transform: rotate(-45deg) translate(8px, -6px);
+    transform: rotate(-45deg) translate(8px, -6px);
+}

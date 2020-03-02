@@ -1,0 +1,41 @@
+/* 
+    Created on : 24/02/2020, 01:28:46 PM
+    Author     : COBO
+*/
+@font-face {
+    font-family: Font Awesome;
+    src: url(../fonts/fa-solid-900.ttf);
+}
+
+[class*="fa-"]{
+    font-family: "Font Awesome";
+    font-weight: 900;
+}
+
+.fa-code:before{ 
+    content: "\f121";
+}
+
+.fa-book-open:before{ 
+    content: "\f518";
+}
+
+.fa-plus-square:before{ 
+    content: "\f0fe";
+}
+
+.fa-minus-square:before{ 
+    content: "\f146";
+}
+
+.fa-circle:before{ 
+    content: "\f111";
+}
+
+.fa-search:before{ 
+    content: "\f002";
+}
+
+.fa-times:before{ 
+    content: "\f00d";
+}

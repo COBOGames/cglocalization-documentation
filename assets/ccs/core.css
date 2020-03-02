@@ -1,0 +1,295 @@
+/*************************************************/
+/*              V A R I A B L E S                */
+/*************************************************/
+:root {
+    /* DIMENSIONS */
+    --navbar-height: 70px;
+    --sidebar-width: 320px;
+    --border-bottom-height-fx: 8px;
+
+    /* POSITIONS */
+    --sidebar-hided-pos-left: -350px;
+
+    /* COLORS */
+    --navbar-bg-color: #343a40;
+    --white-text-color: #ced4da;
+    --active-color: #2297f3;
+    --hover-color: #77bbff;
+    --separator-on-sidebar-color: #e6e6e6;
+    --separator-on-navbar-color:  #222;
+
+    /* DEPTHS */
+    --z-index-sidebar: 1000;
+    --z-index-close-sidebar-panel: 100;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/roboto-regular.ttf);
+}
+
+/*************************************************/
+/*               G E N E R A L                   */
+/*************************************************/
+*{
+    box-sizing: border-box;
+    font-family: "Roboto", "sans-serif";
+}
+
+body{
+    font-size: 15px;
+    margin: 0;
+}
+
+/*************************************************/
+/*         N A V I G A T I O N  B A R            */
+/*************************************************/
+#navbar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--navbar-bg-color);
+    border-bottom: var(--border-bottom-height-fx) solid #212529;
+}
+
+#navbarFloatRight{
+    display: flex;
+    margin-left: auto;
+}
+
+.navbar-link{
+    color: var(--white-text-color);
+    padding: 18px 16px;
+    font-size: 18px;
+}
+
+.navbar-link:hover{
+    color: white;
+    border-bottom: var(--border-bottom-height-fx) solid var(--hover-color);
+    margin-bottom: -8px;
+}
+
+.navbar-link-active{
+    color: #fff;
+    background-color: #40474e;
+    font-weight: bold;
+    outline-width: 10px;
+    border-bottom: var(--border-bottom-height-fx) solid var(--active-color);
+    margin-bottom: -8px;
+}
+
+.navbar-separator{
+    border-right: 1px solid var(--separator-on-navbar-color);
+}
+
+.logo{
+    max-width: 128px;
+    max-height: 128px;
+    margin: 5px 0px 0px 16px;
+}
+
+.navbar-title{
+    align-self: center;
+    font-size: 28px;
+    color: white;
+}
+
+.navbar-link-icon{
+    /*display: none;*/
+    float: left;
+    margin-right: 8px;
+    margin-top: 2px; /* a small offset to center it */
+}
+
+.navbar-link-name{
+    float: left;
+}
+
+.search-container{
+    display: flex;
+    width: 250px;
+    margin: 10px;
+    padding: 5px 0px 5px 20px;
+    border-radius: 20px;    
+    background: #494e53;
+    color: var(--white-text-color);
+    border: 0px solid var(--active-color);
+    -webkit-transition: border 0.2s; /* For Safari 3.1 to 6.0 */
+    transition: border 0.2s;
+}
+
+.search-container-focused{
+    border: 2px solid var(--active-color);
+}
+
+.search-text-field{
+    background: none;
+    outline: none;
+    border: none;
+    width: 80%;
+    /*width: 190px;*/
+    float: left;
+    color: white;
+    font-size: 16px;
+}
+
+.search-button{
+    outline: none;
+    border: none;
+    background: none;
+    width: 20%;
+    color: var(--white-text-color);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*************************************************/
+/*                S I D E B A R                  */
+/*************************************************/
+.sidebar-wrapper{
+    z-index: var(--z-index-sidebar);
+    display: block;
+    width: var(--sidebar-width);
+    height: 100%;
+    padding: 0px 16px;
+    background: white;
+    border-right: 1px solid var(--separator-on-sidebar-color);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+}
+
+.sidebar-title{
+    /*background: yellow;*/
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+    text-align: center;
+    padding-bottom: 5px;
+    /*border-bottom: 1px solid var(--separator-on-sidebar-color);*/
+}
+
+#txtSidebarSearch{
+    outline: none;
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 50px;    
+    border: 1px solid var(--separator-on-sidebar-color);
+    margin-bottom: 10px;
+
+    -webkit-transition: border 0.2s; /* For Safari 3.1 to 6.0 */
+    transition: border 0.2s;
+}
+
+#txtSidebarSearch:focus{
+    border: 2px solid var(--active-color);
+}
+
+#btnClearSidebarSearch{
+    display: none; /* hided at start */
+    position: absolute;
+    color: #444;
+    cursor: pointer;
+    padding: 6px;
+    top: 2px;
+    right: 5px;
+}
+
+#btnClearSidebarSearch:hover{
+    color: black;
+}
+
+#labelNoSearchResults{
+    display: none; /* hided at start */
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+}
+
+#loadingIndicator{
+    text-align: center;
+}
+
+.sidebar ul{
+    list-style-type:none;
+    position: relative;
+    left: -20px;
+    line-height: 1.5em;
+}
+
+#sidebar-ul{
+    margin: 0;
+    padding-left: 20px;
+}
+
+.sidebar li{
+    display: grid;
+    grid-template-columns: 20px 250px;
+    justify-content: start;
+    grid-gap: 3px;
+}
+
+.node{
+    cursor: pointer;
+    color: var(--active-color);
+
+    font-family: "Font Awesome";
+    font-weight: 900;
+    font-size: 17px;
+}
+
+.leaf-icon:before{
+    cursor: context-menu;
+    font-size: 10px;
+    content: "\f111";
+    margin-left: 3px;
+}
+
+.sidebar-link{
+    color: blue;
+    text-decoration: none;
+}
+
+.sidebar-no-link-but-has-children{
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-link:hover{
+    text-decoration: underline;
+}
+
+.sidebar-link-active{
+    padding-left: 5px;
+    color: white;
+    background: var(--navbar-bg-color);
+}
+
+.close-sidebar-panel{
+    display: none; /* hided at start */
+    z-index: var(--z-index-close-sidebar-panel);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/*************************************************/
+/*                C O N T E N T                  */
+/*************************************************/
+.content{
+    margin-left: var(--sidebar-width);
+    margin-top: var(--navbar-height);
+    padding: 2em;
+    /*border: 1px solid gray;*/
+}
