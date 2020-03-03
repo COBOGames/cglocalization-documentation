@@ -22,6 +22,8 @@ $(document).ready(function ()
     initSearchContainers();
     generateSidebar();
     updateSidebarHeight();
+    
+    searchInSidebar();
 });
 
 $(window).resize(function ()
@@ -226,9 +228,12 @@ function searchInSidebar() {
     for (var i = 0; i < n; i++) {
         var element = sidebarElementsGenerated[i];
 
+        // show it if contain the filter
         if (element.text().toUpperCase().indexOf(filter) > -1)
+        {
             element.show();
-        else
+        }
+        else // hide it and increment the counter
         {
             element.hide();
             hidedCounter++;
