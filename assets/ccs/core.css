@@ -107,44 +107,6 @@ body{
     float: left;
 }
 
-.search-container{
-    display: flex;
-    width: 250px;
-    margin: 10px;
-    padding: 5px 0px 5px 20px;
-    border-radius: 20px;    
-    background: #494e53;
-    color: var(--white-text-color);
-    border: 0px solid var(--active-color);
-    -webkit-transition: border 0.2s; /* For Safari 3.1 to 6.0 */
-    transition: border 0.2s;
-}
-
-.search-container-focused{
-    border: 2px solid var(--active-color);
-}
-
-.search-text-field{
-    background: none;
-    outline: none;
-    border: none;
-    width: 80%;
-    /*width: 190px;*/
-    float: left;
-    color: white;
-    font-size: 16px;
-}
-
-.search-button{
-    outline: none;
-    border: none;
-    background: none;
-    width: 20%;
-    color: var(--white-text-color);
-    font-size: 16px;
-    cursor: pointer;
-}
-
 /*************************************************/
 /*                S I D E B A R                  */
 /*************************************************/
