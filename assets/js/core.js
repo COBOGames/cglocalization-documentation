@@ -106,7 +106,7 @@ function generateBranch(item, ul)
     // check for add link
     if (url)
     {
-        $("<a>").attr('href', url).addClass("sidebar-link").text(name).appendTo(li);
+        $("<a>").attr('href', url + ".html").addClass("sidebar-link").text(name).appendTo(li);
     }
     else
     {
