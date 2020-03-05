@@ -8,6 +8,7 @@ var scriptingLink;
 var isManual;
 var hideSidebarPosLeft;
 var navbarHeight;
+var currentPageLink;
 
 // SEARCH
 var txtSidebarSearch;
@@ -22,7 +23,7 @@ $(document).ready(function ()
     initSearchContainers();
     generateSidebar();
     updateSidebarHeight();
-    
+
     searchInSidebar();
 });
 
@@ -54,6 +55,10 @@ function initVariables()
     txtSidebarSearch = $("#txtSidebarSearch");
     btnClearSidebarSearch = $("#btnClearSidebarSearch");
     labelNoSearchResults = $("#labelNoSearchResults");
+
+    // current page link
+    var array = location.href.split("/");
+    currentPageLink = array[array.length - 1];
 }
 
 function updateSidebarHeight() {
@@ -74,7 +79,7 @@ function generateSidebar()
     $(".sidebar-title").text(title);
 
     // generate branches
-    var ul = $('<ul id="sidebar-ul"></ul>');
+    var ul = $('<ul id="sidebarUl"></ul>');
     for (var i = 0; i < sidebarItems.length; i++)
         generateBranch(sidebarItems[i], ul);
 
@@ -83,6 +88,26 @@ function generateSidebar()
     sidebar.append("<div style='height:1em'></div>"); // add a space at the bottom
 
     $("#loadingIndicator").hide();
+    expandCurrentLinkInSidebar();
+}
+
+function expandCurrentLinkInSidebar() {
+    var activeLink = $('#sidebarUl .sidebar-link-active');
+    if (activeLink)
+    {
+        var parents = activeLink.parents('ul');
+        for (var i = 0; i < parents.length; i++) {
+            var parent = $(parents[i]);
+
+            // ignore the sidebarUl
+            if (parent.attr("id") === "sidebarUl")
+                continue;
+
+            var icon = parent.parent("li").children(":first");
+            if (icon)
+                toggleNodeVisibility(icon, 0);
+        }
+    }
 }
 
 /**
@@ -106,7 +131,15 @@ function generateBranch(item, ul)
     // check for add link
     if (url)
     {
-        $("<a>").attr('href', url + ".html").addClass("sidebar-link").text(name).appendTo(li);
+        var url = url + ".html";
+        let klass = "sidebar-link";
+        var a = $("<a>").attr('href', url).text(name).appendTo(li);
+
+        // if is the current link, mark it as the active one
+        if (currentPageLink === url)
+            klass = "sidebar-link-active";
+
+        a.addClass(klass);
     }
     else
     {
@@ -148,10 +181,9 @@ function generateBranch(item, ul)
         icon.addClass("leaf-icon"); // set the leaf icon
         li.prepend(icon);           // and place it to the start 
     }
-
 }
 
-function toggleNodeVisibility(icon)
+function toggleNodeVisibility(icon, speed = "fast")
 {
     // if expanded set the collapsed icon
     if (icon.hasClass("fa-plus-square"))
@@ -168,7 +200,7 @@ function toggleNodeVisibility(icon)
 
     // find the ul next to the icon and toggle the visibility
     var child_ul = icon.siblings("ul:first");
-    child_ul.slideToggle("fast");
+    child_ul.slideToggle(speed);
 }
 
 /**
