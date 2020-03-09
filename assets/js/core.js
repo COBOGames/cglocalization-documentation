@@ -23,6 +23,7 @@ $(document).ready(function ()
     initSearchContainers();
     generateSidebar();
     updateSidebarHeight();
+    updateTitles();
 
     searchInSidebar();
 });
@@ -92,7 +93,7 @@ function generateSidebar()
 }
 
 function expandCurrentLinkInSidebar() {
-    var activeLink = $('#sidebarUl .sidebar-link-active');
+    var activeLink = $('.sidebar-link-active');
     if (activeLink)
     {
         var parents = activeLink.parents('ul');
@@ -108,6 +109,22 @@ function expandCurrentLinkInSidebar() {
                 toggleNodeVisibility(icon, 0);
         }
     }
+}
+
+function updateTitles()
+{
+    var contentTitle;
+    var pageTitle = "CGLocalization ";
+
+    var activeLink = $('.sidebar-link-active');
+    if (activeLink)
+        contentTitle = activeLink.text();
+
+    pageTitle += isManual ? "Manual" : "Scripting";
+    pageTitle += " - " + contentTitle;
+    
+    $("#contentTitle").text(contentTitle);
+    document.title = pageTitle;
 }
 
 /**
