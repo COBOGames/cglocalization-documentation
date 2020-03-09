@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGLocalization</title> <!-- Assigned from JS -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="icon" href="../assets/images/favicon.png"/>
+
+        <link rel="stylesheet" href="../assets/ccs/fontawesome.css"/>
+        <link rel="stylesheet" href="../assets/ccs/core.css"/>
+        <link rel="stylesheet" href="../assets/ccs/menu-button.css"/>
+        <link rel="stylesheet" href="../assets/ccs/responsive.css"/>
+
+        <script src="metadata/sidebar-items.js"></script>
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/core.js"></script>
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+
+            <!--TOGGLE SIDEBAR BUTTON--> 
+            <div id="menuButtonWrapper"
+                 class="menu-button-wrapper navbar-link"
+                 onclick="showSidebar();">
+
+                <div id="menuButton">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+
+            <div class="navbar-separator"></div>
+
+            <!--LOGO AND TITLE--> 
+            <img class="logo" src="../assets/images/cg-logo.png" width="55" height="55" alt="Logo"/>
+            <span class="navbar-title"><b>CGLocalization</b></span>
+
+            <!--LINKS--> 
+            <div id="navbarFloatRight">
+                <a id="manualLink" class="navbar-link" href="../manual/index.html">
+                    <span class="navbar-link-icon fa-book-open"></span>
+                    <span class="navbar-link-name">Manual</span>
+                </a>
+
+                <a id="scriptingLink" class="navbar-link" href="../scripting/index.html">
+                    <span class="navbar-link-icon fa-code"></span>
+                    <span class="navbar-link-name">Scripting</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-title">Assigned from JS</div>
+
+                <!-- SEARCH -->
+                <div style="position: relative;">
+                    <input
+                        type="text" 
+                        id="txtSidebarSearch" 
+                        onkeyup="searchInSidebar()"
+                        placeholder="Search..">
+                    <div
+                        id="btnClearSidebarSearch"
+                        class="fa-times"
+                        onclick="clearSidebarSearch()"
+                        title="Clear Search"></div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator">Loading...</div>
+            <div id="labelNoSearchResults">No results found</div>
+        </div>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="close-sidebar-panel"
+             onclick="closeSidebar()"
+             style="cursor:pointer"
+             title="Close Side Menu">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
+
+            <!--CONTENT_START-->
+            <p>
+                CGLocalization is a simple and robust localization tool for the
+                <a target="_blank" href="https://unity.com/">Unity</a>
+                game engine. It ships with an intuitive editor window to aid you in the creation of
+                the languages that your project is going to support. 
+            </p>
+            <p>
+                This manual helps you learn how to use the tool effectively.
+            </p>
+
+            <br/>
+            <h2>Features</h2>
+
+            <div class="cards">
+
+                <!--dark theme-->
+                <div class="card">    
+                    <img src="images/card-dark-theme.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Dark Theme</h3>
+                        The window is drawn using dark theme no matter what kind of Unity License
+                        you have!
+                    </div>
+                </div>
+
+                <!--localized interface-->
+                <div class="card">    
+                    <img src="images/card-languages.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Localized Interface</h3>
+                        Localized to English, Spanish, French and Portuguese.
+                    </div>
+                </div>
+
+                <!--iso-->
+                <div class="card">    
+                    <img src="images/card-iso.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>ISO 639-1</h3>
+                        All ISO 639-1 language codes with its respective regions are already predefined.
+                    </div>
+                </div>
+
+                <!--localize string and objects-->
+                <div class="card">    
+                    <img src="images/card-localized-objects.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Localize Strings and Unity Objects</h3>
+                        Any object that lives in the Project View can be localized.
+                    </div>
+                </div>
+
+                <!--compatible-->
+                <div class="card">    
+                    <img src="images/card-compatible.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Compatible with</h3>
+                        The tool contains localized behaviours to localize <b>UGUI</b>, <b>TextMesh Pro</b>.
+                        Among other Unity components.
+                    </div>
+                </div>
+
+                <!--preview in editor-->
+                <div class="card">    
+                    <img src="images/card-preview-langs.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Preview Languages in the Editor</h3>
+                        When running your project you can preview any language and observe how it behaves in the Editor.
+                    </div>
+                </div>
+
+                <!--sort by dragging-->
+                <div class="card">    
+                    <img src="images/card-sort-by-dragging.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Sort By Dragging</h3>
+                        Keys and Languagges can be sorted by dragging.
+                    </div>
+                </div>
+
+                <!--export/import-->
+                <div class="card">    
+                    <img src="images/card-export-import.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Export/Import String Keys</h3>
+                        You can export/import the string values of any language to/from <b>XML</b> or <b>TXT</b>.
+                    </div>
+                </div>
+
+                <!--generate constants-->
+                <div class="card">    
+                    <img src="images/card-generate-constants.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Generate a Script of Constants</h3>
+                        You can generate a script of contants to bu used at compile time and avoid
+                        runtime errors.
+                    </div>
+                </div>
+
+                <!--auto translate-->
+                <div class="card">    
+                    <img src="images/card-auto-translate.png" alt="image"/>
+                    <div class="card-content">
+                        <h3>Auto Translate</h3>
+                        In the Editor you can translate strings with Google Translate.
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <h3 style="margin-bottom: 0">Attributing Authors:</h3>
+            <ul style="margin-top: .5em">
+                <li>
+                    <a target="_blank" href="https://www.freepik.com/free-photos-vectors/map">
+                        White World Map created by freepik
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://icons8.com/icons/set/xml-file">XML and TXT File icons</a>
+                    by
+                    <a target="_blank" href="https://icons8.com">Icons8</a>
+                </li>
+            </ul>
+            <!--CONTENT_END-->
+        </div>
+    </body>
+</html>
