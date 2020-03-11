@@ -89,10 +89,11 @@ function generateSidebar()
     sidebar.append("<div style='height:1em'></div>"); // add a space at the bottom
 
     $("#loadingIndicator").hide();
+    expandCurrentLinkParentsInSidebar();
     expandCurrentLinkInSidebar();
 }
 
-function expandCurrentLinkInSidebar() {
+function expandCurrentLinkParentsInSidebar() {
     var activeLink = $('.sidebar-link-active');
     if (activeLink)
     {
@@ -111,6 +112,19 @@ function expandCurrentLinkInSidebar() {
     }
 }
 
+/**
+ * If the current link is a parent it is exapnded to show it children
+ */
+function expandCurrentLinkInSidebar() {
+    var activeLink = $('.sidebar-link-active');
+    if (activeLink)
+    {
+        var icon = activeLink.prev();
+        if (icon.hasClass("fa-plus-square"))
+            toggleNodeVisibility(icon, 0);
+    }
+}
+
 function updateTitles()
 {
     var contentTitle;
@@ -122,7 +136,7 @@ function updateTitles()
 
     pageTitle += isManual ? "Manual" : "Scripting";
     pageTitle += " - " + contentTitle;
-    
+
     $("#contentTitle").text(contentTitle);
     document.title = pageTitle;
 }
