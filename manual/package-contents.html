@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGLocalization</title> <!-- Assigned from JS -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="icon" href="../assets/images/favicon.png"/>
+
+        <link rel="stylesheet" href="../assets/ccs/fontawesome.css"/>
+        <link rel="stylesheet" href="../assets/ccs/core.css"/>
+        <link rel="stylesheet" href="../assets/ccs/menu-button.css"/>
+        <link rel="stylesheet" href="../assets/ccs/responsive.css"/>
+
+        <script src="metadata/sidebar-items.js"></script>
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/core.js"></script>
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+
+            <!--TOGGLE SIDEBAR BUTTON--> 
+            <div id="menuButtonWrapper"
+                 class="menu-button-wrapper navbar-link"
+                 onclick="showSidebar();">
+
+                <div id="menuButton">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+
+            <div class="navbar-separator"></div>
+
+            <!--LOGO AND TITLE--> 
+            <img class="logo" src="../assets/images/cg-logo.png" width="55" height="55" alt="Logo"/>
+            <span class="navbar-title"><b>CGLocalization</b></span>
+
+            <!--LINKS--> 
+            <div id="navbarFloatRight">
+                <a id="manualLink" class="navbar-link" href="../manual/index.html">
+                    <span class="navbar-link-icon fa-book-open"></span>
+                    <span class="navbar-link-name">Manual</span>
+                </a>
+
+                <a id="scriptingLink" class="navbar-link" href="../scripting/index.html">
+                    <span class="navbar-link-icon fa-code"></span>
+                    <span class="navbar-link-name">Scripting</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-title">Assigned from JS</div>
+
+                <!-- SEARCH -->
+                <div style="position: relative;">
+                    <input
+                        type="text" 
+                        id="txtSidebarSearch" 
+                        onkeyup="searchInSidebar()"
+                        placeholder="Search..">
+                    <div
+                        id="btnClearSidebarSearch"
+                        class="fa-times"
+                        onclick="clearSidebarSearch()"
+                        title="Clear Search"></div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator">Loading...</div>
+            <div id="labelNoSearchResults">No results found</div>
+        </div>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="close-sidebar-panel"
+             onclick="closeSidebar()"
+             style="cursor:pointer"
+             title="Close Side Menu">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
+
+            <!--CONTENT_START-->
+            <p>
+                After you have imported the package from the Asset Store into your project, the
+                tool is installed at the <b><i>Assets/CGLocalization</i></b> folder.
+            </p>
+
+            <div class="note-success">
+                You can move the <i>CGLocalization</i> folder to any location inside the Project View.
+            </div>
+
+            <!--table-->
+            <p>The next table show the package contents:</p>
+            <table style="max-width: 800px">
+                <tr>
+                    <th>Folder</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><b>Documentation</b></td>
+                    <td>User Manual and Scripting API documentation</td>
+                </tr>
+                <tr>
+                    <td><b>Editor</b></td>
+                    <td>Editor classes and resources</td>
+                </tr>    
+                <tr>
+                    <td class="indent1"><b>Helpers</b></td>
+                    <td>Various helpers classes</td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>InspectorEditors</b></td>
+                    <td>Classes for
+                        <a target="_blank" href="https://docs.unity3d.com/ScriptReference/Editor.html">
+                            Custom Inspector Editors
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>Others</b></td>
+                    <td>Other classes</td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>PopupWindows</b></td>
+                    <td>Classes for auxiliary
+                        <a target="_blank" href="https://docs.unity3d.com/ScriptReference/PopupWindow.html">
+                            Popup Windows</a>
+                        used by the main window
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>PropertyDrawers</b></td>
+                    <td>
+                        Classes for
+                        <a target="_blank" href="https://docs.unity3d.com/ScriptReference/PropertyDrawer.html">
+                            Custom Property Drawers
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>Resources</b></td>
+                    <td>
+                        Resources needed by the main window
+                        <i>(These resources are not included when you build your project)</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>Windows</b></td>
+                    <td>
+                        Classes for auxiliary
+                        <a target="_blank" href="https://docs.unity3d.com/ScriptReference/EditorWindow.html">
+                            Editor Windows
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Examples</b></td>
+                    <td>Example scenes and the assets required to play them</td>
+                </tr>
+                <tr>
+                    <td><b>Resources</b></td>
+                    <td>Runtime resources used by the tool</td>
+                </tr>
+                <tr>
+                    <td><b>Runtime</b></td>
+                    <td>Runtime classes</td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>Core</b></td>
+                    <td>CGLocalization core classes</td>
+                </tr>
+                <tr>
+                    <td class="indent1"><b>LocalizedBehaviours</b></td>
+                    <td>Localized behaviours for 
+                        <a target="_blank" href="https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/index.html">
+                            UGUI</a>,
+                        <a target="_blank" href="https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126">
+                            TextMesh Pro</a>
+                        and other Unity standard components</td>
+                </tr>
+            </table>
+            <!--CONTENT_END-->
+        </div>
+    </body>
+</html>

@@ -291,3 +291,58 @@ body{
     /*background: red;*/
     margin: 0em 1em 1em 1em;
 }
+
+/*************************************************/
+/*                   N O T E S                   */
+/*************************************************/
+[class*="note-"]{
+    margin-bottom: 15px;
+    padding: 4px 12px;
+}
+
+.note-danger{
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+}
+
+.note-success{
+    background-color: #ddffdd;
+    border-left: 6px solid #4CAF50;
+}
+
+.note-info{
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+}
+
+.note-warning{
+    background-color: #ffffcc;
+    border-left: 6px solid #ffeb3b;
+}
+
+/*************************************************/
+/*                  T A B L E S                  */
+/*************************************************/
+table {
+    border-collapse: collapse;
+    width: auto;
+    border: 1px solid #eee;
+}
+
+th, td{
+    text-align: left;
+    padding: 10px;
+}
+
+th{
+    background: var(--active-color);
+    color: white;
+}
+
+td.indent1{
+    text-indent: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
