@@ -298,6 +298,7 @@ body{
 [class*="note-"]{
     margin-bottom: 15px;
     padding: 4px 12px;
+    max-width: 600px;
 }
 
 .note-danger{
