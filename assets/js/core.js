@@ -33,7 +33,7 @@ $(window).resize(function ()
     closePanel.hide();
     showSidebarButton.removeClass("morph-to-x");
 
-    var showSidebar_ = $(document).width() > 600;
+    var showSidebar_ = $(window).width() > 600;
     sidebarWrapper.css("left", showSidebar_ ? "0px" : hideSidebarPosLeft);
 
     updateSidebarHeight();
