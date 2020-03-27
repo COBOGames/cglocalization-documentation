@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGLocalization</title> <!-- Assigned from JS -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="icon" href="../assets/images/favicon.png"/>
+
+        <link rel="stylesheet" href="../assets/ccs/fontawesome.css"/>
+        <link rel="stylesheet" href="../assets/ccs/core.css"/>
+        <link rel="stylesheet" href="../assets/ccs/menu-button.css"/>
+        <link rel="stylesheet" href="../assets/ccs/responsive.css"/>
+
+        <script src="metadata/sidebar-items.js"></script>
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/core.js"></script>
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+
+            <!--TOGGLE SIDEBAR BUTTON--> 
+            <div id="menuButtonWrapper"
+                 class="menu-button-wrapper navbar-link"
+                 onclick="showSidebar();">
+
+                <div id="menuButton">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+
+            <div class="navbar-separator"></div>
+
+            <!--LOGO AND TITLE--> 
+            <img class="logo" src="../assets/images/cg-logo.png" width="55" height="55" alt="Logo"/>
+            <span class="navbar-title"><b>CGLocalization</b></span>
+
+            <!--LINKS--> 
+            <div id="navbarFloatRight">
+                <a id="manualLink" class="navbar-link" href="../manual/index.html">
+                    <span class="navbar-link-icon fa-book-open"></span>
+                    <span class="navbar-link-name">Manual</span>
+                </a>
+
+                <a id="scriptingLink" class="navbar-link" href="../scripting/index.html">
+                    <span class="navbar-link-icon fa-code"></span>
+                    <span class="navbar-link-name">Scripting</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-title">Assigned from JS</div>
+
+                <!-- SEARCH -->
+                <div style="position: relative;">
+                    <input
+                        type="text" 
+                        id="txtSidebarSearch" 
+                        onkeyup="searchInSidebar()"
+                        placeholder="Search..">
+                    <div
+                        id="btnClearSidebarSearch"
+                        class="fa-times"
+                        onclick="clearSidebarSearch()"
+                        title="Clear Search"></div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator">Loading...</div>
+            <div id="labelNoSearchResults">No results found</div>
+        </div>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="close-sidebar-panel"
+             onclick="closeSidebar()"
+             style="cursor:pointer"
+             title="Close Side Menu">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
+
+            <!--CONTENT_START-->
+
+            <p>
+                When the CGLocalization 1.2 or newer is imported to your project, a
+                <b>LocalizationSettings.asset</b> is created at the
+                <i>Assets/Resources/CGLocalization</i> folder.
+                The next image show the dialog prompted to notify that a new settings asset will be
+                created.
+            </p>
+
+            <p>
+                <a target="_blank" href="images/dialog-create-settings.png">
+                    <img src="images/dialog-create-settings.png" alt=""  style="max-width: 100%; height:auto;"/>
+                </a>
+            </p>
+
+            <div class="note-info">
+                This asset is created only if you <b>do not</b> already have a configured settings
+                asset inside any <i>Resources/CGLocalization</i> folder.
+            </div>
+
+            <br/>
+            <h2>Properties</h2>
+
+            <p>The next table describe the properties</p>
+
+            <table style="max-width: 800px">
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><b>Localization Asset</b></td>
+                    <td>
+                        <p>
+                            The localization asset used to localize your project. Initially is assigned the
+                            localization asset of the Localization Example
+                            <i>(install-path/Examples/Localization Example.asset)</i>.
+                        </p>
+                        <div class="note-info">
+                            Is recommended to 
+                            <a href="creating-a-localization-asset.html">create a new LocalizationAsset</a>
+                            and assign it in this property.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Test Language</b></td>
+                    <td>
+                        If non empty, the language name or locale that you type in this text field,
+                        will be used when playing the project in the Editor.
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Remember Current Language</b></td>
+                    <td>
+                        <p>
+                            <b><i>If enabled</i></b>, every time the current language is changed, the name is saved in the
+                            <a href="http://docs.unity3d.com/ScriptReference/PlayerPrefs.html"> PlayerPrefs </a>.
+                            Later, when the tool is started again, the current language is restored using that saved name.
+                        </p>
+
+                        <p>
+                            <b><i>If disabled</i></b>, you must save/load the
+                            <span class="_code_block">
+                                <span class="_class_color">Localization</span>.<span
+                                    class="_field_color">Instance</span>.<span
+                                    class="_field_color">currentLanguageName</span>
+                            </span>
+                            property manually.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+            <br/>
+            <br/>
+            <div>
+                <b>Note:</b> The settings can be also edited from the Localization Settings window inside the
+                CGLocalization window. See next image:
+            </div>
+            <p>
+                <a target="_blank" href="images/window-localization-settings.png">
+                    <img class="img-flexible" src="images/window-localization-settings.png" alt=""/>
+                </a>
+            </p>
+            <!--CONTENT_END-->
+        </div>
+    </body>
+</html>
