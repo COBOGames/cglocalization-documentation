@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGLocalization</title> <!-- Assigned from JS -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="icon" href="../assets/images/favicon.png"/>
+
+        <link rel="stylesheet" href="../assets/ccs/fontawesome.css"/>
+        <link rel="stylesheet" href="../assets/ccs/core.css"/>
+        <link rel="stylesheet" href="../assets/ccs/menu-button.css"/>
+        <link rel="stylesheet" href="../assets/ccs/responsive.css"/>
+
+        <script src="metadata/sidebar-items.js"></script>
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/core.js"></script>
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+
+            <!--TOGGLE SIDEBAR BUTTON--> 
+            <div id="menuButtonWrapper"
+                 class="menu-button-wrapper navbar-link"
+                 onclick="showSidebar();">
+
+                <div id="menuButton">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+
+            <div class="navbar-separator"></div>
+
+            <!--LOGO AND TITLE--> 
+            <img class="logo" src="../assets/images/cg-logo.png" width="55" height="55" alt="Logo"/>
+            <span class="navbar-title"><b>CGLocalization</b></span>
+
+            <!--LINKS--> 
+            <div id="navbarFloatRight">
+                <a id="manualLink" class="navbar-link" href="../manual/index.html">
+                    <span class="navbar-link-icon fa-book-open"></span>
+                    <span class="navbar-link-name">Manual</span>
+                </a>
+
+                <a id="scriptingLink" class="navbar-link" href="../scripting/index.html">
+                    <span class="navbar-link-icon fa-code"></span>
+                    <span class="navbar-link-name">Scripting</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-title">Assigned from JS</div>
+
+                <!-- SEARCH -->
+                <div style="position: relative;">
+                    <input
+                        type="text" 
+                        id="txtSidebarSearch" 
+                        onkeyup="searchInSidebar()"
+                        placeholder="Search..">
+                    <div
+                        id="btnClearSidebarSearch"
+                        class="fa-times"
+                        onclick="clearSidebarSearch()"
+                        title="Clear Search"></div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator">Loading...</div>
+            <div id="labelNoSearchResults">No results found</div>
+        </div>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="close-sidebar-panel"
+             onclick="closeSidebar()"
+             style="cursor:pointer"
+             title="Close Side Menu">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
+
+            <!--CONTENT_START-->
+
+            <div>
+                The <b>first time your project runs</b>, in the editor or another platform, the localization tool try to
+                load the end user's system language provided by
+                <a href="https://docs.unity3d.com/ScriptReference/Application-systemLanguage.html">
+                    Application.systemLanguage
+                </a>
+            </div>
+
+            <p>
+                These are the steps used to load the initial language:
+            </p>
+            <ol>
+                <li>
+                    If you have checked the <a href="localization-settings.html">Remember Current Language</a>
+                    in the <b>Localization Settings</b> window, the tool check if exist a saved language name and that one
+                    is used. If the option is not checked, nor a language name was saved, the process continue.
+                </li>
+
+                <li>
+                    If any language name is an <b>exact match</b> of the
+                    <a href="https://docs.unity3d.com/ScriptReference/Application-systemLanguage.html">
+                        Application.systemLanguage</a>, then that one is used.
+                </li>
+
+                <li>
+                    If no exact match found, then the <b>first variant</b> is used. <i>(For this case is recommended to
+                        reorder your languages in the Languages Window)</i>
+                </li>
+
+                <li>
+                    If the exact match nor a variant is found, then the <b>Default Language</b> is used.
+                </li>
+            </ol>
+
+            <!--CONTENT_END-->
+        </div>
+    </body>
+</html>

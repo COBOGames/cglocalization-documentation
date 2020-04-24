@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGLocalization</title> <!-- Assigned from JS -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="icon" href="../assets/images/favicon.png"/>
+
+        <link rel="stylesheet" href="../assets/ccs/fontawesome.css"/>
+        <link rel="stylesheet" href="../assets/ccs/core.css"/>
+        <link rel="stylesheet" href="../assets/ccs/menu-button.css"/>
+        <link rel="stylesheet" href="../assets/ccs/responsive.css"/>
+
+        <script src="metadata/sidebar-items.js"></script>
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/core.js"></script>
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+
+            <!--TOGGLE SIDEBAR BUTTON--> 
+            <div id="menuButtonWrapper"
+                 class="menu-button-wrapper navbar-link"
+                 onclick="showSidebar();">
+
+                <div id="menuButton">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+
+            <div class="navbar-separator"></div>
+
+            <!--LOGO AND TITLE--> 
+            <img class="logo" src="../assets/images/cg-logo.png" width="55" height="55" alt="Logo"/>
+            <span class="navbar-title"><b>CGLocalization</b></span>
+
+            <!--LINKS--> 
+            <div id="navbarFloatRight">
+                <a id="manualLink" class="navbar-link" href="../manual/index.html">
+                    <span class="navbar-link-icon fa-book-open"></span>
+                    <span class="navbar-link-name">Manual</span>
+                </a>
+
+                <a id="scriptingLink" class="navbar-link" href="../scripting/index.html">
+                    <span class="navbar-link-icon fa-code"></span>
+                    <span class="navbar-link-name">Scripting</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-title">Assigned from JS</div>
+
+                <!-- SEARCH -->
+                <div style="position: relative;">
+                    <input
+                        type="text" 
+                        id="txtSidebarSearch" 
+                        onkeyup="searchInSidebar()"
+                        placeholder="Search..">
+                    <div
+                        id="btnClearSidebarSearch"
+                        class="fa-times"
+                        onclick="clearSidebarSearch()"
+                        title="Clear Search"></div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator">Loading...</div>
+            <div id="labelNoSearchResults">No results found</div>
+        </div>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="close-sidebar-panel"
+             onclick="closeSidebar()"
+             style="cursor:pointer"
+             title="Close Side Menu">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
+
+            <!--CONTENT_START-->
+
+            <p>For each language an Options button is available. The next figure show the available options:</p>
+
+            <p>
+                <a target="_blank" href="images/language-options-window.png">
+                    <img class="img-flexible" src="images/language-options-window.png" alt=""/>
+                </a>
+                <br />
+                <i>The Spanish language options</i>
+            </p>
+
+            <!-- SET AS DEFAULT -->
+            <h2>Set as Default</h2>
+
+            <div>
+                The default language, is used when your Localization asset do not contains the end user's system
+                language and the tool is loading the <a href="initial-language.html">Initial Language</a>.
+                It is also used to preview the localized behaviours in your current open scene while not in runtime.
+            </div>
+
+            <!-- SELECT CUSTOM ICON -->
+            <h2>Select Custom Icon</h2>
+
+            <p>
+                This options allow you to select a custom icon for a language. Custom icons are displayed in
+                the popup menu of the CGLocalization window toolbar and in the Languages window:
+            </p>
+
+            <p>
+                <a target="_blank" href="images/custom-icon-toolbar-and-languages.png">
+                    <img class="img-flexible" src="images/custom-icon-toolbar-and-languages.png" alt=""/>
+                </a>
+                <br />
+                <i>Custom icons in the popup menu and in the Languages window</i>
+            </p>
+
+            <p>They are also shown in the HierarchyView in gameobjects that has the <b>ChangeLanguage</b> script attached:</p>
+            <p>
+                <a target="_blank" href="images/custom-icon-in-change-language.png">
+                    <img class="img-flexible" src="images/custom-icon-in-change-language.png" alt=""/>
+                </a>
+                <br />
+                <i>Custom icon in a ChangeLanguage gameobject</i>
+            </p>
+
+            <!-- DELETE -->
+            <h2>Delete</h2>
+
+            <p>Delete the language.</p>
+            <div class="note-info">
+                If the language is the Default, then the first language in the list is assigned
+                as the default.
+            </div>
+
+            <!-- EXPORT STRING VALUES -->
+            <h2>Export String Values</h2>
+
+            <p>Export all keys of <b>String</b> type into a file.</p>
+
+            <div class="note-info">
+                Select your preferred file format in the <b>Import/Export File Type</b> dropdown in the
+                <b>Settings</b> menu. The supported formats are <b>XML</b> and <b>TXT</b>.
+            </div>
+
+            <p>
+                <a target="_blank" href="images/settings-import-export-file-type.png">
+                    <img class="img-flexible" src="images/settings-import-export-file-type.png" alt=""/>
+                </a>
+                <br />
+                <i> The Import/Export file type option </i>
+            </p>
+
+            <div>
+                Let's add some text to a String key and export a simple English language to see how the file formats are
+                exported:
+            </div>
+
+            <p>
+                <a target="_blank" href="images/export-string-key-example.png">
+                    <img class="img-flexible" src="images/export-string-key-example.png" alt=""/>
+                </a>
+            </p>
+
+            <div>
+                <b>Export to XML</b>
+                <p>
+                    <a target="_blank" href="images/export-to-xml.png">
+                        <img class="img-flexible" src="images/export-to-xml.png" alt=""/>
+                    </a>
+                    <br/>
+                    <i> The string values exported to the xml format </i>
+                </p>
+            </div>
+
+            <div>
+                <b>Export to TXT</b>
+                <p>
+                    <a target="_blank" href="images/export-to-txt.png">
+                        <img class="img-flexible" src="images/export-to-txt.png" alt=""/>
+                    </a>
+                    <br />
+                    <i> The string values exported to the text format </i>
+                </p>
+            </div>
+
+            <div class="note-info">
+                The generated <i>.txt</i> file has the <b>key_name=key_value </b>format
+            </div>
+
+            <!-- IMPORT STRING VALUES -->
+            <h2>Import String Values</h2>
+
+            <div>
+                A dialog box prompts you for choose the file and automatically, all the values of the keys that have the
+                same name of the keys in the file are replaced. Check the console in case of errors while importing.
+            </div>
+
+            <!--CONTENT_END-->
+        </div>
+    </body>
+</html>
