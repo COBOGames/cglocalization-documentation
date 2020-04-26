@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CGLocalization</title> <!-- Assigned from JS -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="icon" href="../assets/images/favicon.png"/>
+
+        <link rel="stylesheet" href="../assets/ccs/fontawesome.css"/>
+        <link rel="stylesheet" href="../assets/ccs/core.css"/>
+        <link rel="stylesheet" href="../assets/ccs/menu-button.css"/>
+        <link rel="stylesheet" href="../assets/ccs/responsive.css"/>
+
+        <script src="metadata/sidebar-items.js"></script>
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/core.js"></script>
+    </head>
+
+    <body>
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+
+            <!--TOGGLE SIDEBAR BUTTON--> 
+            <div id="menuButtonWrapper"
+                 class="menu-button-wrapper navbar-link"
+                 onclick="showSidebar();">
+
+                <div id="menuButton">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+
+            <div class="navbar-separator"></div>
+
+            <!--LOGO AND TITLE--> 
+            <img class="logo" src="../assets/images/cg-logo.png" width="55" height="55" alt="Logo"/>
+            <span class="navbar-title"><b>CGLocalization</b></span>
+
+            <!--LINKS--> 
+            <div id="navbarFloatRight">
+                <a id="manualLink" class="navbar-link" href="../manual/index.html">
+                    <span class="navbar-link-icon fa-book-open"></span>
+                    <span class="navbar-link-name">Manual</span>
+                </a>
+
+                <a id="scriptingLink" class="navbar-link" href="../scripting/index.html">
+                    <span class="navbar-link-icon fa-code"></span>
+                    <span class="navbar-link-name">Scripting</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-wrapper">
+            <div class="sidebar">
+                <div class="sidebar-title">Assigned from JS</div>
+
+                <!-- SEARCH -->
+                <div style="position: relative;">
+                    <input
+                        type="text" 
+                        id="txtSidebarSearch" 
+                        onkeyup="searchInSidebar()"
+                        placeholder="Search..">
+                    <div
+                        id="btnClearSidebarSearch"
+                        class="fa-times"
+                        onclick="clearSidebarSearch()"
+                        title="Clear Search"></div>
+                </div>
+            </div>
+
+            <div id="loadingIndicator">Loading...</div>
+            <div id="labelNoSearchResults">No results found</div>
+        </div>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="close-sidebar-panel"
+             onclick="closeSidebar()"
+             style="cursor:pointer"
+             title="Close Side Menu">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
+
+            <!--CONTENT_START-->
+
+            <p>
+                If you prefer, instead of
+                <a href="generate-consts.html">Generate a Script of Constants</a>,
+                you can use the
+                <span class="code-inline color-class">SelectKeyDropdown</span>
+                attribute to select the identifier or the name of a key in the Inspector using a dropdown.
+            </p>
+
+            <p>Let's see next example script:</p>
+
+            <!-- code -->
+            <pre><code>
+<span class="color-reserved-word-pink">using </span><span class="color-class">UnityEngine;</span>
+<span class="color-reserved-word-pink">using </span><span class="color-class">CGLocalization;</span>
+
+<span class="color-reserved-word">public class</span><span class="color-class"> Test</span> : <span class="color-class">MonoBehaviour</span>
+{
+    <span class="color-comment">// select a key by id and must be a String key</span>
+    [<span class="color-class">SelectKeyDropdown</span>(<span class="color-field">KeyType</span>.<span class="color-field">String</span>)]
+    <span class="color-reserved-word">public int</span> <span class="color-field">keyId</span>;
+	
+    <span class="color-comment">// select a key by name, can be any key type</span>
+    [<span class="color-class">SelectKeyDropdown</span>]
+    <span class="color-reserved-word">public string</span> <span class="color-field">keyName</span>;
+
+    <span class="color-comment">// select a key by id and must be an Audio key</span>
+    [<span class="color-class">SelectKeyDropdown</span>(<span
+		class="color-field">KeyType</span>.<span class="color-field">Audio</span>)]
+    <span class="color-reserved-word">public int</span> <span class="color-field">audioKey</span>;
+
+    <span class="color-comment">// the attribute is only used with integers and strings</span>
+    [<span class="color-class">SelectKeyDropdown</span>]
+    <span class="color-reserved-word">public float</span> <span class="color-field">key</span>;
+}
+</code></pre>
+
+            <p>This is the example script is attached to a GameObject in the Inspector:</p>
+            <p>
+                <a target="_blank" href="images/select-key-dropdowns.png">
+                    <img class="img-flexible" src="images/select-key-dropdowns.png" alt=""/></a>
+            </p>
+
+            <p>
+                To select a key just click a dropdown. If you supplied a
+                <span class="code-inline color-field">KeyType</span>
+                in the attribute constructor,
+                the selection is limited to the specified key type. See the next image:
+            </p>
+
+            <p>
+                <a target="_blank" href="images/select-key-dropdown-restricted.png">
+                    <img class="img-flexible" src="images/select-key-dropdown-restricted.png" alt=""/></a>
+            </p>
+
+            <!--CONTENT_END-->
+        </div>
+    </body>
+</html>
