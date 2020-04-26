@@ -92,7 +92,123 @@
 
             <!--CONTENT_START-->
 
-            CONTENT HERE
+            <p>
+                To create a new localized behaviour you must to extend your class from the 
+                <span class="code-inline color-class">LocalizedBehavior</span> class.
+                Let's create a <b>LocalizedFont</b> script for a text component.
+            </p>
+
+            <p>
+                Create a new script and name it <b>LocalizedFont.cs</b>. Copy and paste the below code and read the
+                comments:
+            </p>
+
+            <!-- code -->
+            <pre><code>
+<span class="color-reserved-word-pink">using </span><span class="color-class">UnityEngine;</span>
+<span class="color-reserved-word-pink">using </span><span class="color-class">UnityEngine</span>.<span class="color-class">UI;</span>
+<span class="color-reserved-word-pink">using </span><span class="color-class">CGLocalization;</span>
+
+[<span class="color-class">SelectKeyDropdown</span>(<span class="color-field">KeyType</span>.<span
+	class="color-field">Object</span>)] <span class="color-comment">// Limit the dropdown menu to pick up only a key with an Object type</span>
+[<span class="color-class">RequireComponent</span>(<span class="color-reserved-word">typeof</span>(<span
+	class="color-class">Text</span>)] <span class="color-comment">    // Require the Text component</span>
+<span class="color-reserved-word">public class</span><span class="color-class"> LocalizedFont</span> : <span class="color-class">LocalizedBehaviour</span>
+{
+    <span class="color-reserved-word">private </span><span class="color-class">Text</span> <span class="color-field">m_text</span>;
+	
+<span class="color-comment">  // The AssignObject method is invoked every time the current language is changed in play mode
+  // and every time a value is changed in the default language in the CGLocalization editor window.
+  // If you need to assign strings values override the AssignString(string) method.</span>
+    <span class="color-reserved-word">protected override void</span> <span class="color-method">AssignObject</span>(<span class="color-class">Object</span> <span class="color-field">obj</span>)
+    {
+        <span class="color-reserved-word-pink">if</span> (!<span class="color-field">m_text</span>)
+            <span class="color-field">m_text</span> = <span class="color-method">GetComponent</span>&#60;<span class="color-class">Text</span>&#62;();
+
+        <span class="color-field">m_text</span>.<span class="color-field">font</span> = <span class="color-field">obj</span> <span class="color-reserved-word-pink">as</span> <span class="color-class">Font</span>; <span class="color-comment">// assign the obj as a font </span>
+    }
+}
+</code></pre>
+
+            <p>Now to add the font key follow the next steps:</p>
+            <ol>
+                <!-- 1 -->
+                <li>Import three font files to your project.</li>
+
+                <!-- 2 -->
+                <li>
+                    Go to<b> Window &gt; CGLocalization &gt; Welcome Screen </b>and click the <b>Localization Example
+                    </b>localization asset to open it.
+                    <p>
+                        <a target="_blank" href="images/localized-behaviour-new-open-localization-example.png">
+                            <img class="img-flexible" src="images/localized-behaviour-new-open-localization-example.png" alt=""/></a>
+                    </p>
+                </li>
+
+                <!-- 3 -->
+                <li>
+                    Click the <b>Add Object Key</b> button in the toolbar to add the Object key and name it <b>Font</b>.
+                    <p>
+                        <a target="_blank" href="images/localized-behaviour-new-add-font.png">
+                            <img class="img-flexible" src="images/localized-behaviour-new-add-font.png" alt=""/></a>
+                    </p>
+                </li>
+
+                <!-- 4 -->
+                <li> Now click the <b>Edit in Window</b> button to add a font per language easily. </li>
+
+                <!-- 5 -->
+                <li>
+                    Add the fonts like in the next image:
+                    <p>
+                        <a target="_blank" href="images/localized-behaviour-new-editing-font-key.png">
+                            <img class="img-flexible" src="images/localized-behaviour-new-editing-font-key.png" alt=""/></a>
+                    </p>
+                </li>
+
+            </ol>
+
+            <p>
+                It's time to assign our created <b>LocalizeFont</b> script to a GameObject with a Text component
+                attached to change the font based on the current language.
+            </p>
+
+            <p>
+                Open up the <b>Localized Behaviours </b>scene located at <b>install-path/Examples/Scenes/Localized
+                    Behaviours.unity</b> and select the Text GameObject of the Button - Play in the Hierarchy. See next
+                image:
+            </p>
+            <p>
+                <a target="_blank" href="images/localized-behaviour-new-text-selected.png">
+                    <img class="img-flexible" src="images/localized-behaviour-new-text-selected.png" alt=""/></a>
+            </p>
+
+            <p>Now add the <b>LocalizeFont </b>script and select the Font key. The Inspector looks like this next image:</p>
+            <p>
+                <a target="_blank" href="images/localized-behaviour-new-select-font-key.png">
+                    <img class="img-flexible" src="images/localized-behaviour-new-select-font-key.png" alt=""/></a>
+            </p>
+
+            <p>
+                <b>Now hit Play!!!</b> Change the language using the three button (English, Español and Français) in
+                the middle of the Game View and observe how the font in the Play text is changed
+            </p>
+
+            <p>
+                <a target="_blank" href="images/localized-behaviour-new-play-arial.png">
+                    <img class="img-flexible" src="images/localized-behaviour-new-play-arial.png" alt=""/></a>
+                <i>English (Arial)</i>
+            </p>
+            <p>
+                <a target="_blank" href="images/localized-behaviour-new-play-consola.png">
+                    <img class="img-flexible" src="images/localized-behaviour-new-play-consola.png" alt=""/></a>
+                <i>Spanish (Consola)</i>
+            </p>
+            <p>
+                <a target="_blank" href="images/localized-behaviour-new-play-gothic.png">
+                    <img class="img-flexible" src="images/localized-behaviour-new-play-gothic.png" alt=""/></a>
+                <i>French (Gothic)</i>
+            </p>
 
             <!--CONTENT_END-->
         </div>
