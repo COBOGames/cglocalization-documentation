@@ -33,7 +33,7 @@
 /*************************************************/
 *{
     box-sizing: border-box;
-    font-family: "Roboto", "sans-serif";
+    font-family: Roboto, sans-serif;
 }
 
 body{
@@ -375,4 +375,48 @@ tr:nth-child(even) {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
+}
+
+/*************************************************/
+/*                     C O D E                   */
+/*************************************************/
+pre code{
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+[class*="color-"]{
+    font-family: monospace;
+}
+
+.color-class{
+    color: #43c9b0;
+}
+
+.color-method{
+    color: #dcdcaa;
+}
+
+.color-field{
+    color: #8cdcfe;
+}
+
+.color-reserved-word{
+    color: #499cd6;
+}
+
+.color-reserved-word-pink{
+    color: #c586c0;
+}
+
+.color-string{
+    color: #ce9178;
+}
+
+.color-comment{
+    color: #5e9955;
 }
