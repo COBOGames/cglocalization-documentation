@@ -301,12 +301,12 @@ body{
     max-width: 600px;
 }
 
-.note-danger:before{
-    content: "Danger:";
+.note-caution:before{
+    content: "Caution:";
     font-weight:bold;    
 }
 
-.note-danger{
+.note-caution{
     background-color: #ffdddd;
     border-left: 6px solid #f44336;
 }
