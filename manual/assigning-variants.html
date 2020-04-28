@@ -91,7 +91,31 @@
             <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
 
             <!--CONTENT_START-->
-            [WRITE YOUR CONTENT HERE]
+
+            <p>
+                If you assign a language name or locale that is not included in your localization asset, the tool will
+                use the first variant that match the name.
+            </p>
+            
+            <p class="note-tip">
+                For assigning variants it's recommended to reorder your languages in the Languages Window.
+            </p>
+
+            <p>Let's assume that we have the next languages in our localization asset:</p>
+            <ul>
+                <li>English</li>
+                <li>English (United States)</li>
+                <li>French (Haiti)</li>
+                <li>French</li>
+            </ul>
+
+            <!-- code -->
+            <pre><code>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span class="color-field">currentLanguageName</span> = <span class="color-string">"English (Canada)"</span>; <span class="color-comment"> // assigns 'English'</span>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span class="color-field">currentLanguageName</span> = <span class="color-string">"French (France)"</span>; <span class="color-comment">  // assigns 'French (Haiti)'</span>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span	class="color-field">currentLanguageName</span> = <span class="color-string">"Spanish"</span>; <span class="color-comment">          // do not change the language</span>
+</code></pre>
+
             <!--CONTENT_END-->
         </div>
     </body>

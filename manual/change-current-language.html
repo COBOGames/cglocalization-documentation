@@ -91,7 +91,26 @@
             <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
 
             <!--CONTENT_START-->
-            [WRITE YOUR CONTENT HERE]
+
+            <p>To access or change the current language at runtime, assign a name or locale in one of the next properties:</p>
+
+            <!-- code -->
+            <pre><code>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span class="color-field">currentLanguageName</span>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span class="color-field">currentLanguageLocale</span>
+</code></pre>
+
+            <p><b>Example:</b></p>
+            <!-- code -->
+            <pre><code>
+<span class="color-comment">// change the language to Spanish by name</span>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span class="color-field">currentLanguageName</span> = <span class="color-string">"Spanish"</span>;
+<span class="color-comment">// change the language to Spanish by locale</span>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span class="color-field">currentLanguageLocale</span> = <span class="color-string">"es"</span>;
+<span class="color-comment">// change the language to Spanish (United States) by locale and region</span>
+<span class="color-class">Localization</span>.<span class="color-field">Instance</span>.<span	class="color-field">currentLanguageLocale</span> = <span class="color-string">"es_US"</span>; <span class="color-comment"> // en-US is also allowed</span>
+</code></pre>
+
             <!--CONTENT_END-->
         </div>
     </body>
