@@ -91,7 +91,58 @@
             <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
 
             <!--CONTENT_START-->
-            [WRITE YOUR CONTENT HERE]
+
+            <p> Values can be obtained using the <b>name</b> or the <b>identifier</b> of a key.</p>
+
+            <!-- code -->
+            <pre><code>
+<span class="color-reserved-word">string</span> <span
+	class="color-field">    stringValue</span>   = <span
+	class="color-class">Localization</span>.<span
+	class="color-field">Instance</span>.<span
+	class="color-method">GetString</span>(<span
+	class="color-string">"StringKeyName"</span>);
+<span class="color-class">AudioClip</span> <span
+	class="color-field"> audioValue</span>     = <span
+	class="color-class">Localization</span>.<span
+	class="color-field">Instance</span>.<span
+	class="color-method">GetAudio</span>(<span
+	class="color-string">"AudioKeyName"</span>);
+<span class="color-class">Sprite</span> <span
+	class="color-field">    spriteValue</span>   = <span
+	class="color-class">Localization</span>.<span
+	class="color-field">Instance</span>.<span
+	class="color-method">GetSprite</span>(<span
+	class="color-string">"SpriteKeyName"</span>);
+<span class="color-class">Texture</span> <span
+	class="color-field">   textureValue</span> = <span
+	class="color-class">Localization</span>.<span
+	class="color-field">Instance</span>.<span
+	class="color-method">GetTexture</span>(<span
+	class="color-string">"TextureKeyName"</span>);
+<span class="color-class">GameObject</span> <span
+	class="color-field">prefabValue</span>   = <span
+	class="color-class">Localization</span>.<span
+	class="color-field">Instance</span>.<span
+	class="color-method">GetPrefab</span>(<span
+	class="color-string">"PrefabKeyName"</span>);
+<span class="color-class">Object</span> <span
+	class="color-field">    objectValue</span>   = <span
+	class="color-class">Localization</span>.<span
+	class="color-field">Instance</span>.<span
+	class="color-method">GetObject</span>(125);
+</code></pre>
+
+            <p class="note-tip">
+                The above methods internally call helper methods to validate that a key is not null and has the
+                correct type. If you know the type of a key beforehand, you can invoke the
+                <span class="code-inline color-method">GetKey</span>()
+                method instead, check that the key is not null, and use the value 
+                (<span class="code-inline color-field">key.stringValue</span>
+                or <span class="code-inline color-field">key.objectValue</span>).
+                This is the way the localized behaviours works.
+            </p>
+
             <!--CONTENT_END-->
         </div>
     </body>
