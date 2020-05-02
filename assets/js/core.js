@@ -60,6 +60,11 @@ function initVariables()
     // current page link
     var array = location.href.split("/");
     currentPageLink = array[array.length - 1];
+    
+    // check for remove a section part
+    var indexOf = currentPageLink.indexOf("#");
+    if (indexOf !== -1)
+        currentPageLink = currentPageLink.slice(0, indexOf);
 }
 
 function updateSidebarHeight() {
@@ -98,7 +103,8 @@ function expandCurrentLinkParentsInSidebar() {
     if (activeLink)
     {
         var parents = activeLink.parents('ul');
-        for (var i = 0; i < parents.length; i++) {
+        for (var i = 0; i < parents.length; i++)
+        {
             var parent = $(parents[i]);
 
             // ignore the sidebarUl
@@ -288,7 +294,8 @@ function searchInSidebar() {
 
     var hidedCounter = 0;
     var n = sidebarElementsGenerated.length;
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < n; i++)
+    {
         var element = sidebarElementsGenerated[i];
 
         // show it if contain the filter
