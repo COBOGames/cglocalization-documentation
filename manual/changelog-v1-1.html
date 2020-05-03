@@ -91,7 +91,95 @@
             <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
 
             <!--CONTENT_START-->
-            [WRITE YOUR CONTENT HERE]
+
+            <h3>Released 13 Jan 2020</h3>
+
+            <b class="code-inline changelog-fixed-color">FIXED</b>
+            <ul>
+                <li>Editor: Optimized the 'Add Language' and 'Languages' windows when rendering a lot of items inside
+                    the scroll view.</li>
+                <li>Editor: While searching and a key name was changed, the new name was assigned to another key.</li>
+                <li>Editor: While searching and a key was duplicated, another key was duplicated instead of the wished key.</li>
+                <li>Editor: When translating texts with more than one lines (with Google API), only the first line of
+                    the translated text was used.</li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-added-color">ADDED</b>
+            <ul>
+                <li><span class="color-class-lt">LocaleHelper</span> class. Helper class for ISO 639-1 language codes.</li>
+                <li><span class="color-class-lt">Localization</span>.<span class="color-field-lt">CURRENT_LANGUAGE_NAME_PREF_KEY</span></li>
+                <li><span class="color-class-lt">Localization</span>.<span class="color-field-lt">currentLanguageName</span></li>
+                <li><span class="color-class-lt">Localization</span>.<span class="color-field-lt">currentLanguageLocale</span></li>
+                <li><span class="color-class-lt">Localization</span>.<span class="color-method-lt">IsSupportedLocale</span>(<span class="color-reserved-word-lt">string</span>)</li>
+                <li><span class="color-class-lt">LocalizationAsset</span>.<span class="color-method-lt">GetLanguageByLocale</span>(<span class="color-reserved-word-lt">string</span>)</li>
+                <li><span class="color-class-lt">LocalizationSettings</span>.<span class="color-field-lt">testLanguage</span></li>
+                <li><span class="color-class-lt">LocalizationSettings</span>.<span class="color-field-lt">SINGLETON_PATH</span></li>
+                <li><span class="color-class-lt">LocalizationSettings</span>.<span class="color-field-lt">rememberCurrentLanguageName</span></li>
+                <li>The 'Locales.txt' file in the 'Resources/CGLocalization' folder.</li>
+                <li>Editor: 'Languages' Window: Now you can sort languages by dragging and see its options by clicking
+                    the Options button at the right.</li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-changed-color">CHANGED</b>
+            <ul>
+                <li>Moved the 'Runtime' and 'Editor' folders to the 'Core' folder.</li>
+                <li>Moved the 'CGLocalization User Manual.pdf' and 'CGLocalization.chm' files to the 'Documentation'
+                    folder.</li>
+                <li>Moved the 'LocalizationSettings.asset' file to the 'Resources/CGLocalization' folder.</li>
+                <li>Editor: Now you can add to your LocalizationAsset more languages than those in the SystemLanguage
+                    enumeration and also custom ones.</li>
+                <li>Editor: The 'Select Language' window was renamed to 'Languages'.</li>
+                <li>
+                    Editor: 'Add Language' Window: Shown all the languages listed in the
+                    <span class="color-class-lt">LocaleHelper</span>.<span class="color-field-lt">NAMES</span> and
+                    <span class="color-class-lt">LocaleHelper</span>.<span class="color-field-lt">LOCALES</span>
+                    sorted by locale.
+                </li>
+                <li>Editor: The LocalizationSettings was separated from the CGLocalization window settings.</li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-deprecated-color">DEPRECATED</b>    
+            <ul>
+                <li>
+                    <span class="color-method-lt">Localization</span>(<span class="color-class-lt">LocalizationAsset</span>,
+                    <span class="color-reserved-word-lt">bool</span>)
+                    constructor. Use
+                    <span class="color-method-lt">Localization</span>(<span class="color-class-lt">LocalizationAsset</span>,
+                    <span class="color-reserved-word-lt">string</span>) instead.
+                </li>
+                <li>
+                    <span class="color-class-lt">Localization</span>.<span class="color-method-lt">ChangeLanguage</span>(<span
+                        class="color-reserved-word-lt">string</span>).
+                    Use
+                    <span class="color-field-lt">currentLanguageName</span> or
+                    <span class="color-field-lt">currentLanguageCode</span> instead.
+                </li>
+                <li>
+                    <span class="color-class-lt">Localization</span>.<span class="color-method-lt">ChangeLanguage</span>(<span
+                        class="color-class-lt">SystemLanguage</span>).
+                    Use
+                    <span class="color-field-lt">currentLanguageName</span> or
+                    <span class="color-field-lt">currentLanguageCode</span> instead.
+                </li>
+                <li>
+                    <span class="color-class-lt">LocalizationSettings</span>.<span
+                        class="color-field-lt">loadSystemLanguage</span>.
+                    The end user's system language is always loaded as the initial language.
+                </li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-removed-color">REMOVED</b> 
+            <ul>
+                <li>
+                    Editor: Removed the 'Language Options' for the selected language from the toolbar. (The options
+                    are located in the Language window for each language)
+                </li>
+            </ul>
+
             <!--CONTENT_END-->
         </div>
     </body>

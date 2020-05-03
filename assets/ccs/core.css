@@ -407,30 +407,24 @@ pre code{
     font-family: Consolas, monospace;
 }
 
-.color-class{
-    color: #43c9b0;
-}
+.color-class{color: #43c9b0;}
+.color-method{color: #dcdcaa;}
+.color-field{color: #8cdcfe;}
+.color-reserved-word{color: #499cd6;}
+.color-reserved-word-pink{color: #c586c0;}
+.color-string{color: #ce9178;}
+.color-comment{color: #5e9955;}
 
-.color-method{
-    color: #dcdcaa;
-}
+.color-class-lt{color: #267f99;}
+.color-method-lt{color: #795e26;}
+.color-field-lt{color: #001080;}
+.color-reserved-word-lt{color: #0000ff;}
+.color-reserved-word-pink-lt{color: #c100db;}
+.color-string-lt{color: #a31515;}
+.color-comment-lt{color: #008000;}
 
-.color-field{
-    color: #8cdcfe;
-}
-
-.color-reserved-word{
-    color: #499cd6;
-}
-
-.color-reserved-word-pink{
-    color: #c586c0;
-}
-
-.color-string{
-    color: #ce9178;
-}
-
-.color-comment{
-    color: #5e9955;
-}
+.changelog-fixed-color{color: #a5c53c;}
+.changelog-added-color{color: #2fcc71;}
+.changelog-changed-color{color: #ece05a;}
+.changelog-deprecated-color{color: #e67f23;}
+.changelog-removed-color{color: #e64d3d;}
