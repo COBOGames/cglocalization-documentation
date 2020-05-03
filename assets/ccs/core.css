@@ -423,8 +423,8 @@ pre code{
     padding-right: 4px;
 }
 
-.changelog-fixed-color{color: #a5c53c;}
-.changelog-added-color{color: #2fcc71;}
-.changelog-changed-color{color: #ece05a;}
-.changelog-deprecated-color{color: #e67f23;}
-.changelog-removed-color{color: #e64d3d;}
+.changelog-fixed{color: #a5c53c;}
+.changelog-added{color: #2fcc71;}
+.changelog-changed{color: #ece05a;}
+.changelog-deprecated{color: #e67f23;}
+.changelog-removed{color: #e64d3d;}
