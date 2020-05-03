@@ -394,15 +394,6 @@ pre code{
     font-size: 14px;
 }
 
-.code-inline{
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-    border-radius: 3px;
-    padding-left: 4px;
-    padding-right: 4px;
-    font-size: 14px;
-}
-
 [class*="color-"]{
     font-family: Consolas, monospace;
 }
@@ -422,6 +413,15 @@ pre code{
 .color-reserved-word-pink-lt{color: #c100db;}
 .color-string-lt{color: #a31515;}
 .color-comment-lt{color: #008000;}
+
+[class*="changelog-"]
+{
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border-radius: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 
 .changelog-fixed-color{color: #a5c53c;}
 .changelog-added-color{color: #2fcc71;}
