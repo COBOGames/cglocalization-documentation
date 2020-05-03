@@ -91,7 +91,69 @@
             <h1 id="contentTitle">CGLocalization</h1> <!-- Assigned from JS -->
 
             <!--CONTENT_START-->
-            [WRITE YOUR CONTENT HERE]
+
+            <h3>Released 27 Feb 2020</h3>
+
+            <b class="code-inline changelog-fixed-color">FIXED</b>
+            <ul>
+                <li>
+                    Editor: In unity 2018.3 and newer the
+                    <span class="color-class-lt">WWW</span> class is obsolete.
+                    Used the
+                    <span class="color-class-lt">UnityWebRequest</span> class instead.
+                </li>
+                <li>Editor: Fixed the scroll view of the Languages window when the amount of languages do not fit
+                    in the window.</li>
+                <li>Editor: Fixed the search by locale in the Languages window.</li>
+                <li>Editor: Optimized the amount of keys drawn in the CGLocalization window.</li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-added-color">ADDED</b>
+            <ul>
+                <li>Editor: Added busy icon for background tasks at the bottom-right of the CGLocalization window.</li>
+                <li>Editor: Added custom icon for languages. The
+                    <span class="color-class-lt">Language</span>.<span class="color-field-lt">icon</span> field is Editor
+                    only.</li>
+                <li>Editor: Added colors to changelog sections.</li>
+                <li>Editor: Added the Links section to the Welcome window</li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-changed-color">CHANGED</b>
+            <ul>
+                <li>
+                    Editor: The <i>'LocalizationSettings.asset'</i> is no longer included in the package to avoid
+                    overwriting your previous settings. If no settings found in your project after package import,
+                    a new one is created at the <i>'Assets/Resources/CGLocalization'</i> path.
+                </li>
+                <li>Editor: Moved the 'Sort Keys by Name' option from the LanguageOptions window to the main toolbar.</li>
+                <li>Editor: Renamed the 'Release Notes' section to 'Changelog' in the Welcome window</li>
+                <li>Editor: Moved the FIXED changelog sections to the top of each version.</li>
+                <li>Files Structure: Moved the 'Editor' and 'Runtime' folder to the 'CGLocalization' folder.</li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-deprecated-color">DEPRECATED</b>    
+            <ul>
+                <li>
+                    <span class="color-class-lt">SelectKeyType</span> attribute. Use the
+                    <span class="color-class-lt">SelectKeyDropdown</span> attribute instead.
+                </li>
+            </ul>
+
+            <br/>
+            <b class="code-inline changelog-removed-color">REMOVED</b> 
+            <ul>
+                <li>Files Structure: Deleted the 'Core' folder.</li>
+                <li>
+                    Files Structure: Deleted the 'Gizmos' folder. The icons for the 
+                    <span class="color-class-lt">LocalizationAsset</span> and
+                    <span class="color-class-lt">LocalizationSettings</span>
+                    classes in the Project View are assigned through code.
+                </li>
+            </ul>
+
             <!--CONTENT_END-->
         </div>
     </body>
